@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <style>
+            body{
+                padding:40px;
+            }
+            .table{
+                margin-top:40px;
+            }
+            .btn{
+                float:right;
+            }
+            .top>.btn-success{
+                margin-top:40px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="top">
+            <a style="font-size:40px">영화게시판</a>
+            <a href="/"><button type="button" class="btn btn-success">자유게시판</button></a>
+        </div>
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">제목</th>
+              <th scope="col">감독</th>
+              <th scope="col">배우</th>
+              <th scope="col">별 평가</th>
+            </tr>
+          </thead>
+          <tbody>
+              <% @semo.each do |w| %>
+            <tr>
+              <th scope="row"><%=w.id%></th>
+              <td><%=w.title%></td>
+              <td><%=w.director%></td>
+              <td><%=w.actor%></td>
+              <td><%=w.star%></td>
+            </tr>
+            <%end%>
+          </tbody>
+        </table>
+        <a href="/boards/new"><button type="button" class="btn btn-warning">영화 추가하기</button></a>
+    </body>
+</html>
